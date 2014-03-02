@@ -6,8 +6,9 @@ course in a moodle plattform.
 
 AUTHORS
 ============
-David Perera Barreda
-Domingo Gomez Perez
+- David Perera Barreda
+
+- Domingo Gomez Perez
 
 NEWS (0.0.1)
 ============
