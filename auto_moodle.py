@@ -479,13 +479,6 @@ class Sintactico:
 
 
 if __name__ == '__main__':
-    #this params should put in the variables the proper value, this is the value itself or the empy string "" when nothing is specified
-
-    #varUsername = "profesorprueba"
-    #varPassword = "ProfesorPrueba1,"
-    #varCourse = "G1234 Curso de Prueba"
-    #varURL= "http://localhost/"
-    print "tempdir", TEMPDIR
     desc_program = "Program to organize moodle from the terminal"
     desc_file = "File where the description is read"
     desc_user = "Name of the user"
