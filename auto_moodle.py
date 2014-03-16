@@ -457,15 +457,12 @@ class Sintactico:
         iden = PAT_WEB.findall(driver.page_source)
         if iden:
             iden = iden[0]
-            print "link,", iden
             nombre_fichero = os.path.basename(iden)
-            print "nombre de fichero", nombre_fichero
             if '?' in nombre_fichero:#appears ?forcedownload=1
                 nombre_fichero = nombre_fichero[:nombre_fichero.index('?')]
             f = self.br.retrieve(iden)
             nombre_fichero = os.path.join(TEMPDIR,nombre_fichero)
             shutil.move(f[0], nombre_fichero)
-            print "f0", f[0]
             os.system(executableFileName)
             with open(commentsFileName) as f:
                 comments=f.read()
