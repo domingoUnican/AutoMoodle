@@ -20,7 +20,7 @@ import ply.yacc as yacc
 from CLexer import Lexico
 
 PAT=re.compile('mce_[0-9]+_ifr',re.DOTALL|re.M) #Search for the frame when writting a document
-PAT_WEB=re.compile('http:[a-zA-Z0-9?=\/\.]+assignsubmission_file/submission_files[a-zA-Z0-9\/?=\.]+')
+PAT_WEB=re.compile('http:[a-zA-Z0-9?=\/\.]+assignsubmission_file/submission_files[a-zA-Z0-9\/?=\.%\-]+')
 
 TEMPDIR = os.path.abspath('tmp')#Temp Dir
 
@@ -459,12 +459,14 @@ class Sintactico:
             iden = iden[0]
             print "link,", iden
             nombre_fichero = os.path.basename(iden)
-            if '?' in nombre_fichero:
+            print "nombre de fichero", nombre_fichero
+            if '?' in nombre_fichero:#appears ?forcedownload=1
                 nombre_fichero = nombre_fichero[:nombre_fichero.index('?')]
             f = self.br.retrieve(iden)
             nombre_fichero = os.path.join(TEMPDIR,nombre_fichero)
-            os.system(executableFileName)
             shutil.move(f[0], nombre_fichero)
+            print "f0", f[0]
+            os.system(executableFileName)
             with open(commentsFileName) as f:
                 comments=f.read()
             with open(markFileName) as f:
@@ -472,13 +474,20 @@ class Sintactico:
         else:
             comments = ''
             mark = ''
-        time.sleep(5)
+            #time.sleep(5)
         driver.find_element_by_id("id_grade").clear()
         driver.find_element_by_id("id_grade").send_keys(str(mark))
         self.selenium_insertTextInHtmlTextBox(comments)
 
 
 if __name__ == '__main__':
+    #this params should put in the variables the proper value, this is the value itself or the empy string "" when nothing is specified
+
+    #varUsername = "profesorprueba"
+    #varPassword = "ProfesorPrueba1,"
+    #varCourse = "G1234 Curso de Prueba"
+    #varURL= "http://localhost/"
+    print "tempdir", TEMPDIR
     desc_program = "Program to organize moodle from the terminal"
     desc_file = "File where the description is read"
     desc_user = "Name of the user"
