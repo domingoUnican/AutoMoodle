@@ -30,7 +30,7 @@ All of this libraries are available through pip
 TO INSTALL
 ==========
 
-Just use it as a normal python script
+Just use it as a normal python script. In a future, we try to deliver windows binaries too.
 
 TO USE
 ==========
