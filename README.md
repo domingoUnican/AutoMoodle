@@ -6,6 +6,8 @@ course in a moodle plattform.
 
 AUTHORS
 ============
+- Javier Gonzalez Villa
+
 - David Perera Barreda
 
 - Domingo Gomez Perez
