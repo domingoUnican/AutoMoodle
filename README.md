@@ -6,6 +6,10 @@ course in a moodle plattform.
 
 AUTHORS
 ============
+<<<<<<< HEAD
+=======
+
+>>>>>>> AutoMoodle - Version 2.0 -Inicial Commit
 - Javier Gonzalez Villa
 
 - David Perera Barreda

@@ -46,12 +46,12 @@ class TrivialTasks():
     def login_account(self,user,passwd):
         
         driver = self.driver
-        driver.get(self.base_url + "/moodle2/")
-        driver.find_element_by_id("login_username").click()
-        driver.find_element_by_id("login_username").clear()
-        driver.find_element_by_id("login_username").send_keys(str(user))
-        driver.find_element_by_id("login_password").clear()
-        driver.find_element_by_id("login_password").send_keys(str(passwd))
+        driver.get(self.base_url + "/moodle27/login/index.php")
+        driver.find_element_by_id("username").click()
+        driver.find_element_by_id("username").clear()
+        driver.find_element_by_id("username").send_keys(str(user))
+        driver.find_element_by_id("password").clear()
+        driver.find_element_by_id("password").send_keys(str(passwd))
         driver.find_element_by_css_selector("input[type=\"submit\"]").click()
         
         return 1
@@ -94,7 +94,7 @@ class TrivialTasks():
             
             try:
                 href = element.get_attribute("href")
-                if href.count("http://moodle.unican.es/moodle2/course") > 0:
+                if href.count("http://moodle.unican.es/moodle27/course") > 0:
                     links.append(href)
                     titles.append(element.get_attribute("title"))
             except:
@@ -132,7 +132,7 @@ class Ratings():
         self.profile.set_preference('browser.helperApps.neverAsk.saveToDisk','application/zip')        
         
         self.driver = webdriver.Firefox(self.profile)
-        self.driver.set_window_position(-2000,0)
+        self.driver.set_window_position(0,0)
         self.driver.implicitly_wait(3)
         self.base_url = "http://moodle.unican.es/"
         self.verificationErrors = []
@@ -144,12 +144,12 @@ class Ratings():
     def login_account(self,user,passwd):
         
         driver = self.driver
-        driver.get(self.base_url + "/moodle2/")
-        driver.find_element_by_id("login_username").click()
-        driver.find_element_by_id("login_username").clear()
-        driver.find_element_by_id("login_username").send_keys(str(user))
-        driver.find_element_by_id("login_password").clear()
-        driver.find_element_by_id("login_password").send_keys(str(passwd))
+        driver.get(self.base_url + "/moodle27/login/index.php")
+        driver.find_element_by_id("username").click()
+        driver.find_element_by_id("username").clear()
+        driver.find_element_by_id("username").send_keys(str(user))
+        driver.find_element_by_id("password").clear()
+        driver.find_element_by_id("password").send_keys(str(passwd))
         driver.find_element_by_css_selector("input[type=\"submit\"]").click()
         
         return 1
@@ -211,7 +211,7 @@ class Ratings():
             
             try:
                 href = element.get_attribute("href")
-                if href.count("http://moodle.unican.es/moodle2/course") > 0:
+                if href.count("http://moodle.unican.es/moodle27/course") > 0:
                     links.append(href)
                     titles.append(element.get_attribute("title"))
             except:
@@ -248,7 +248,7 @@ class Ratings():
 
             try:
                 href = link.get_attribute("href")
-                if href.count("http://moodle.unican.es/moodle2/mod/assign/") > 0:
+                if href.count("http://moodle.unican.es/moodle27/mod/assign/") > 0:
                     hrefs.append(href)
                     names.append(link.get_attribute("text"))
             except:
@@ -381,7 +381,7 @@ class Ratings():
     
                     try:
                         href = link.get_attribute("href")
-                        if href.count("http://moodle.unican.es/moodle2/user/view.php") > 0:
+                        if href.count("http://moodle.unican.es/moodle27/user/view.php") > 0:
                             student_data.append(link.get_attribute("text"))
                     except:
                         print "El elemento no tienen atributo href"
@@ -563,7 +563,7 @@ class Ratings_Interface(QtGui.QMainWindow):
             course_name = self.ventana.CBAsignaturas.currentText()
             assig_name = self.ventana.CBTareas.currentText()
 
-            self.R.driver.get("http://moodle.unican.es/moodle2/my/")
+            self.R.driver.get("http://moodle.unican.es/moodle27/my/")
             self.R.eval_assigment_all(course_name,assig_name,dir_name)
             
         return 1
